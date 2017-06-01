@@ -33,11 +33,11 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
 
         if (ex instanceof ApplicationException) {
             resonseDtail.put("code", ((ApplicationException) ex).getCode());
-            resonseDtail.put("msg", ((ApplicationException) ex).getMessage());
+            resonseDtail.put("msg",  ex.getMessage());
         } else if (ex instanceof DuplicateKeyException) {
             resonseDtail = ResonseDtail.error("数据库中已存在该记录");
         } else if (ex instanceof NullPointerException) {
-            resonseDtail = ResonseDtail.error("空指针异常" + ex.getMessage() + " " + ex.getCause());
+            resonseDtail = ResonseDtail.error("空指针异常" + ex.toString() + " " + ex.getMessage());
         } else {
             resonseDtail = ResonseDtail.error("系统错误");
         }

@@ -13,6 +13,7 @@
         <module>xc-start-web</module>
         <module>xc-start-common</module>    <!-- 公共模块 -->
         <module>xc-start-schedule</module>  <!-- 定时任务模块 -->
+        <module>xc-start-shiro</module>
     </modules>
 
     <properties>
