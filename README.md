@@ -1,0 +1,2 @@
+# xc-start
+just run
