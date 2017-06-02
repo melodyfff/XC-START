@@ -43,9 +43,9 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
         }
 
         // 判断是否ajax请求
-        if (!(request.getHeader("accept").indexOf("application/json") > -1 || (request
+        if (!(request.getHeader("accept").contains("application/json") || (request
                 .getHeader("X-Requested-With") != null && request.getHeader(
-                "X-Requested-With").indexOf("XMLHttpRequest") > -1))) {
+                "X-Requested-With").contains("XMLHttpRequest")))) {
             // 不是ajax请求返回页面
             ModelAndView mv = new ModelAndView("error");
             mv.addObject("err", resonseDtail);

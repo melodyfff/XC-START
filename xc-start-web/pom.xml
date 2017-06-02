@@ -9,7 +9,7 @@
   <groupId>com.xinchen</groupId>
   <artifactId>xc-start-web</artifactId>
   <packaging>war</packaging>
-  <name>xc-start-web Maven Webapp</name>
+  <name>xc-start-web</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -22,6 +22,14 @@
       <!--<artifactId>xc-start-schedule</artifactId>-->
       <!--<version>0.0.1-SNAPSHOT</version>-->
     <!--</dependency>-->
+
+    <!-- net.sf.json -->
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>2.4</version>
+      <classifier>jdk15</classifier><!--指定jdk版本-->
+    </dependency>
   </dependencies>
   <build>
     <finalName>xc-start-web</finalName>
