@@ -6,9 +6,9 @@
 </head>
 <body>
 <h1>所有的演示例子</h1>
-<h3><a href="${pageContext.request.contextPath}/dao?id=1">[url=./dao.do?id=1]Dao正常错误[/url]</a></h3>
-<h3><a href="${pageContext.request.contextPath}/dao?id=10">[url=./dao.do?id=10]Dao参数错误[/url]</a></h3>
-<h3><a href="${pageContext.request.contextPath}/dao?id=">[url=./dao.do?id=]Dao未知错误[/url]</a></h3>
+<h3><a href="${pageContext.request.contextPath}/test/dao?id=1">[url=./dao.do?id=1]Dao正常错误[/url]</a></h3>
+<h3><a href="${pageContext.request.contextPath}/test/dao?id=10">[url=./dao.do?id=10]Dao参数错误[/url]</a></h3>
+<h3><a href="${pageContext.request.contextPath}/test/dao?id=">[url=./dao.do?id=]Dao未知错误[/url]</a></h3>
 
 
 <h3>[url=./service.do?id=1]Service正常错误[/url]</h3>

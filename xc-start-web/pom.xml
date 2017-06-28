@@ -22,6 +22,11 @@
       <!--<artifactId>xc-start-schedule</artifactId>-->
       <!--<version>0.0.1-SNAPSHOT</version>-->
     <!--</dependency>-->
+    <dependency>
+    <groupId>com.xinchen</groupId>
+    <artifactId>xc-start-shiro</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    </dependency>
 
     <!-- net.sf.json -->
     <dependency>

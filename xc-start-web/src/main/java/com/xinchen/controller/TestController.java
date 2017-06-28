@@ -13,13 +13,11 @@ import javax.servlet.http.HttpServletResponse;
  * Created by xinchen on 2017/5/6.
  */
 @Controller
+@RequestMapping("test")
 public class TestController {
     @Resource
     private TestService testService;
-    @RequestMapping("test")
-    public String forwardmain(){
-        return "test/test";
-    }
+
     @RequestMapping(value = "/controller", method = RequestMethod.GET)
     public void controller(HttpServletResponse response, Integer id) throws Exception {
         switch(id) {

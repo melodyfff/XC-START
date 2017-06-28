@@ -12,7 +12,7 @@
     <modules>
         <module>xc-start-web</module>
         <module>xc-start-common</module>    <!-- 公共模块 -->
-        <module>xc-start-schedule</module>  <!-- 定时任务模块 -->
+        <!--<module>xc-start-schedule</module>  &lt;!&ndash; 定时任务模块 &ndash;&gt;-->
         <module>xc-start-shiro</module>
     </modules>
 
@@ -26,6 +26,7 @@
         <!-- log4j日志文件管理包版本 -->
         <slf4j.version>1.6.6</slf4j.version>
         <log4j.version>1.2.12</log4j.version>
+        <hibernate-validator-version>5.4.1.Final</hibernate-validator-version>
     </properties>
 
     <dependencies>
@@ -181,6 +182,12 @@
 
         <!-- springframe end -->
 
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator-version}</version>
+        </dependency>
+
         <!-- mybatis核心包 -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -218,21 +225,21 @@
         </dependency>
 
         <!-- spring-security -->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>${spring-security.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>${spring-security.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-taglibs</artifactId>
-            <version>${spring-security.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security</groupId>-->
+            <!--<artifactId>spring-security-web</artifactId>-->
+            <!--<version>${spring-security.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security</groupId>-->
+            <!--<artifactId>spring-security-config</artifactId>-->
+            <!--<version>${spring-security.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security</groupId>-->
+            <!--<artifactId>spring-security-taglibs</artifactId>-->
+            <!--<version>${spring-security.version}</version>-->
+        <!--</dependency>-->
         <!-- 日志文件管理包 -->
         <dependency>
             <groupId>log4j</groupId>
