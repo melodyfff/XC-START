@@ -1,5 +1,6 @@
 package com.xinchen.shiro;
 
+import com.xinchen.Exception.ApplicationException;
 import com.xinchen.dao.SysMenuDao;
 import com.xinchen.dao.SysUserDao;
 import com.xinchen.entity.SysMenuEntity;
@@ -81,7 +82,8 @@ public class UserRealm extends AuthorizingRealm {
         
         //密码错误
         if(!password.equals(user.getPassword())) {
-            throw new IncorrectCredentialsException("账号或密码不正确");
+//            throw new IncorrectCredentialsException("账号或密码不正确");
+            throw new ApplicationException("密码不正确");
         }
         
         //账号锁定

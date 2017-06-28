@@ -19,4 +19,8 @@ public class IndexController {
     public String formain(){
         return "index";
     }
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    public String login(){
+        return "login";
+    }
 }
