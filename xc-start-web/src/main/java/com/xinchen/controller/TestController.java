@@ -2,6 +2,7 @@ package com.xinchen.controller;
 
 import com.xinchen.Exception.ApplicationException;
 import com.xinchen.service.TestService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,11 +15,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping("test")
-public class TestController {
+public class TestController extends AbstractController{
     @Resource
     private TestService testService;
 
     @RequestMapping(value = "/controller", method = RequestMethod.GET)
+    @RequiresPermissions("sys:menu:list")
     public void controller(HttpServletResponse response, Integer id) throws Exception {
         switch(id) {
             case 1:
@@ -41,7 +43,8 @@ public class TestController {
         testService.exception(id);
     }
 
-    @RequestMapping(value = "/dao", method = RequestMethod.GET)
+    @RequestMapping(value = "/dao")
+    @RequiresPermissions("abcs")
     public void dao(HttpServletResponse response, Integer id) throws Exception {
         testService.dao(id);
     }

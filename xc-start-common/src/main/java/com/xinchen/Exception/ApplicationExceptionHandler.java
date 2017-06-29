@@ -2,6 +2,7 @@ package com.xinchen.Exception;
 
 import com.alibaba.fastjson.JSON;
 import com.xinchen.utils.ResonseDtail;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;
@@ -38,7 +39,9 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
             resonseDtail = ResonseDtail.error("数据库中已存在该记录");
         } else if (ex instanceof NullPointerException) {
             resonseDtail = ResonseDtail.error("空指针异常" + ex.toString() + " " + ex.getMessage());
-        } else {
+        } else if(ex instanceof UnauthorizedException){
+            resonseDtail = ResonseDtail.error("403 没有权限");
+        }else {
             resonseDtail = ResonseDtail.error("系统错误");
         }
 
