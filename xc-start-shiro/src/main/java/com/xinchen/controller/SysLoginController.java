@@ -1,5 +1,6 @@
 package com.xinchen.controller;
 
+import com.sun.deploy.net.HttpResponse;
 import com.xinchen.utils.ResonseDtail;
 import com.xinchen.utils.ShiroUtils;
 import org.apache.shiro.authc.*;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -29,7 +32,6 @@ public class SysLoginController {
 	@RequestMapping(value = "/sys/login", method = RequestMethod.POST)
 	@ResponseBody
 	public ResonseDtail login(String username, String password)throws IOException {
-
 		try{
 			Subject subject = ShiroUtils.getSubject();
 			//sha256加密
@@ -46,7 +48,7 @@ public class SysLoginController {
 			return ResonseDtail.error("账户验证失败");
 		}
 
-		return ResonseDtail.success();
+		return ResonseDtail.success("登录成功");
 	}
 
 	/**
