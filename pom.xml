@@ -18,32 +18,55 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <aopalliance.version>1.0</aopalliance.version>
+        <ehcache.core>2.6.6</ehcache.core>
+        <ehcache.web>2.0.2</ehcache.web>
         <!-- spring版本号 -->
         <spring.version>4.1.6.RELEASE</spring.version>
         <spring-security.version>4.1.0.RELEASE</spring-security.version>
-        <!-- mybatis版本号 -->
-        <mybatis.version>3.2.8</mybatis.version>
         <!-- log4j日志文件管理包版本 -->
         <slf4j.version>1.6.6</slf4j.version>
+        <!-- Shiro -->
+        <shiro.core>1.3.2</shiro.core>
+        <shiro.web>1.3.2</shiro.web>
+        <shiro.spring>1.3.2</shiro.spring>
+        <shiro.ehcache>1.3.2</shiro.ehcache>
+        <!-- mybatis版本号 -->
+        <mybatis.version>3.2.8</mybatis.version>
+        <mybatis.generator.core>1.3.2</mybatis.generator.core>
+        <mybatis.spring>1.2.2</mybatis.spring>
+        <mysql.connector.java>5.1.38</mysql.connector.java>
+        <c3p0.version>0.9.5.2</c3p0.version>
         <log4j.version>1.2.12</log4j.version>
+        <fastjson.version>1.1.41</fastjson.version>
         <hibernate-validator-version>5.4.1.Final</hibernate-validator-version>
+        <javax.servlet.api>3.1.0</javax.servlet.api>
+        <jsp-api>6.0.32</jsp-api>
+        <jstl.version>1.2</jstl.version>
+        <junit.version>4.10</junit.version>
+        <jackson.databind>2.1.4</jackson.databind>
+        <jackson.core.asl>1.9.13</jackson.core.asl>
+        <jackson.mapper.asl>1.9.13</jackson.mapper.asl>
+        <net.sf.json-lib>2.4</net.sf.json-lib>
+        <javax.mail>1.4.7</javax.mail>
+        <commons.io>2.4</commons.io>
+        <commons.lang>2.6</commons.lang>
+        <commons.dbcp>1.2.2</commons.dbcp>
+        <commons.codec>1.9</commons.codec>
+        <commons.logging>1.1.1</commons.logging>
+        <commons.fileupload>1.3.1</commons.fileupload>
     </properties>
 
     <dependencies>
-        <!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId>
-            <version>2.5</version> <scope>test</scope> scope=compile 的情况（默认compile），也就是说这个项目在编译、测试，运行阶段都需要这个artifact对应的jar包在classpath中
-            scope=provided ，则可以认为这个provided是目标容器已经provided这个artifact,它只影响到编译、测试阶段，运行阶段，假定目标容器已经提供了这个jar包
-            <scope>provided</scope> </dependency> -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>${javax.servlet.api}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.1.1</version>
+            <version>${commons.logging}</version>
         </dependency>
 
 
@@ -51,68 +74,61 @@
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
-            <version>1.2.2</version>
+            <version>${commons.dbcp}</version>
         </dependency>
         <!-- Junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>${junit.version}</version>
         </dependency>
         <!-- 上传组件包 -->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1.3.1</version>
+            <version>${commons.fileupload}</version>
         </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <version>${commons.io}</version>
         </dependency>
 
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
-            <version>1.9</version>
+            <version>${commons.codec}</version>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
+            <version>${commons.lang}</version>
         </dependency>
 
         <!-- 映入JSON -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.1.4</version>
+            <version>${jackson.databind}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl -->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
-            <version>1.9.13</version>
+            <version>${jackson.core.asl}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl -->
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-core-asl</artifactId>
-            <version>1.9.13</version>
-        </dependency>
-
 
         <!-- 格式化对象，方便输出日志 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.1.41</version>
+            <version>${fastjson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>jsp-api</artifactId>
-            <version>6.0.32</version>
+            <version>${jsp-api}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -198,14 +214,14 @@
         <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-core</artifactId>
-            <version>1.3.2</version>
+            <version>${mybatis.generator.core}</version>
         </dependency>
 
         <!-- mybatis/spring包 -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>1.2.2</version>
+            <version>${mybatis.spring}</version>
         </dependency>
 
         <!--mysql驱动包 -->
@@ -213,7 +229,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.38</version>
+            <version>${mysql.connector.java}</version>
         </dependency>
 
 
@@ -221,29 +237,29 @@
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.13</version>
+            <version>${jackson.mapper.asl}</version>
         </dependency>
 
         <!--shrio core-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-core</artifactId>
-            <version>1.3.2</version>
+            <version>${shiro.core}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-web</artifactId>
-            <version>1.3.2</version>
+            <version>${shiro.web}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
-            <version>1.3.2</version>
+            <version>${shiro.spring}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-ehcache</artifactId>
-            <version>1.3.2</version>
+            <version>${shiro.ehcache}</version>
         </dependency>
 
         <!-- 日志文件管理包 -->
@@ -269,38 +285,43 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <version>${jstl.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
         <dependency>
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
-            <version>0.9.5.2</version>
+            <version>${c3p0.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/aopalliance/aopalliance -->
         <dependency>
             <groupId>aopalliance</groupId>
             <artifactId>aopalliance</artifactId>
-            <version>1.0</version>
+            <version>${aopalliance.version}</version>
         </dependency>
         <!-- 加入ehcahe -->
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache-core</artifactId>
-            <version>2.6.6</version>
+            <version>${ehcache.core}</version>
         </dependency>
         <!-- ehcache-web gzip filter -->
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache-web</artifactId>
-            <version>2.0.2</version>
+            <version>${ehcache.web}</version>
         </dependency>
         <!--mail-->
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
-            <version>1.4.7</version>
+            <version>${javax.mail}</version>
+        </dependency>
+        <!-- net.sf.json -->
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>${net.sf.json-lib}</version>
+            <classifier>jdk15</classifier><!--指定jdk版本-->
         </dependency>
     </dependencies>
     <build>
