@@ -9,9 +9,19 @@ package com.xinchen.Exception;
  ****************************************/
 public class ApplicationException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
-	
+
+	/**
+	 * 错误信息
+	 */
     private String msg;
+	/**
+	 * 错误编码
+	 */
     private int code = 500;
+	/**
+	 * 错误信息{}中的参数
+	 */
+	private Object[] params;
     
     public ApplicationException(String msg) {
 		super(msg);
@@ -35,6 +45,20 @@ public class ApplicationException extends RuntimeException {
 		this.code = code;
 	}
 
+	public ApplicationException(int code, Object[] params) {
+		this(code, null, params, null);
+	}
+
+	public ApplicationException(int code, String message, Object[] params) {
+		this(code, message, params, null);
+	}
+
+	public ApplicationException(int code, String msg, Object[] params, Throwable e){
+		super(msg, e);
+		this.params = params;
+		this.code = code;
+	}
+
 	public String getMsg() {
 		return msg;
 	}
@@ -49,6 +73,10 @@ public class ApplicationException extends RuntimeException {
 
 	public void setCode(int code) {
 		this.code = code;
+	}
+
+	public Object[] getParams() {
+		return params;
 	}
 	
 	
