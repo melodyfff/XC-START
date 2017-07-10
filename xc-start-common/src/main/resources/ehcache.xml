@@ -50,7 +50,7 @@
             diskPersistent="false"
             diskExpiryThreadIntervalSeconds="120"/>
 
-    <!-- helloworld缓存 -->
+    <!-- userCache缓存 -->
     <cache name="userCache"
            maxElementsInMemory="1000"
            eternal="false"
