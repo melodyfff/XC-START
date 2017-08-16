@@ -11,7 +11,7 @@
 	<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
 		<!-- 设置session过期时间为1小时(单位：毫秒)，默认为30分钟 -->
 		<!--<property name="globalSessionTimeout" value="3600000"></property>-->
-		<property name="globalSessionTimeout" value="3600000"></property>
+		<property name="globalSessionTimeout" value="20000"></property>
 		<property name="sessionValidationSchedulerEnabled" value="true"></property>
 		<property name="sessionIdUrlRewritingEnabled" value="false"></property>
 	</bean>
@@ -35,7 +35,7 @@
 	    <property name="successUrl" value="/test/test"/>
 	    <!-- 用户访问未对其授权的资源时,所显示的连接 -->  
 	    <!-- 若想更明显的测试此属性可以修改它的值,如unauthor.jsp,然后用[玄玉]登录后访问/admin/listUser.jsp就看见浏览器会显示unauthor.jsp -->  
-	    <property name="unauthorizedUrl" value="/"/>  
+	    <property name="unauthorizedUrl" value="/hello"/>
 	    <!-- Shiro连接约束配置,即过滤链的定义 -->  
 	    <!-- 此处可配合我的这篇文章来理解各个过滤连的作用http://blog.csdn.net/jadyer/article/details/12172839 -->  
 	    <!-- 下面value值的第一个'/'代表的路径是相对于HttpServletRequest.getContextPath()的值来的 -->  
@@ -47,14 +47,18 @@
 				/html/**=anon
 	        	/index=anon
 				/login=anon
+				/404=anon
 	        	/sys/login=anon
-	        	/**=authc
+	        	<!--/**=authc-->
+				/test/**=authc
+				/api/**=authc
 	        </value>
 	    </property>
 	</bean>
 	
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
-	
+
+	<!-- 开启Shiro注解的Spring配置方式的beans。在lifecycleBeanPostProcessor之后运行 -->
 	<!-- AOP式方法级权限检查  -->
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">
 		<property name="proxyTargetClass" value="true" />

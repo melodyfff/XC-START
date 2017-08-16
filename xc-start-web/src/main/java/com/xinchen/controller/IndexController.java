@@ -1,5 +1,6 @@
 package com.xinchen.controller;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,14 +23,24 @@ public class IndexController{
 
     @RequestMapping(value = "/{system}",method = RequestMethod.GET)
     public String index2(@PathVariable("system") String system){
+        if(StringUtils.isBlank(system)){
+            return "index";
+        }
         return system;
     }
-//    @RequestMapping(value = "/index",method = RequestMethod.GET)
-//    public String formain(){
-//        return "index";
-//    }
-//    @RequestMapping(value = "/login",method = RequestMethod.GET)
-//    public String login(){
-//        return "login";
-//    }
+    @RequestMapping(value = "/index",method = RequestMethod.GET)
+    public String formain(){
+        return "index";
+    }
+
+
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public String formain2(){
+        return "index";
+    }
+
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    public String login(){
+        return "login";
+    }
 }
