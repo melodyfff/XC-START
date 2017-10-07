@@ -7,6 +7,8 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 
 /**
@@ -80,8 +82,8 @@ public class Crypt {
      */
     public final static String decrypt(String data) {
         try {
-            return new String(decrypt(hex2byte(data.getBytes()),
-                    PASSWORD_CRYPT_KEY.getBytes()));
+            return new String(decrypt(hex2byte(data.getBytes(Charset.forName("UTF-8"))),
+                    PASSWORD_CRYPT_KEY.getBytes(Charset.forName("UTF-8"))),StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,8 +98,8 @@ public class Crypt {
      */
     public final static String encrypt(String password) {
         try {
-            return byte2hex(encrypt(password.getBytes(),
-                    PASSWORD_CRYPT_KEY.getBytes()));
+            return byte2hex(encrypt(password.getBytes(Charset.forName("UTF-8")),
+                    PASSWORD_CRYPT_KEY.getBytes(Charset.forName("UTF-8"))));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -115,7 +117,7 @@ public class Crypt {
     public final static String decrypt(String data, String key) {
         try {
             return new String(
-                    decrypt(hex2byte(data.getBytes()), key.getBytes()));
+                    decrypt(hex2byte(data.getBytes(Charset.forName("UTF-8"))), key.getBytes(Charset.forName("UTF-8"))),StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -131,7 +133,7 @@ public class Crypt {
      */
     public final static String encrypt(String password, String key) {
         try {
-            return byte2hex(encrypt(password.getBytes(), key.getBytes()));
+            return byte2hex(encrypt(password.getBytes(Charset.forName("UTF-8")), key.getBytes(Charset.forName("UTF-8"))));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -146,8 +148,8 @@ public class Crypt {
      */
     public final static String decryptData(String data) {
         try {
-            return new String(decrypt(hex2byte(data.getBytes()),
-                    DATA_CRYPT_KEY.getBytes()));
+            return new String(decrypt(hex2byte(data.getBytes(Charset.forName("UTF-8"))),
+                    DATA_CRYPT_KEY.getBytes(Charset.forName("UTF-8"))),StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -162,8 +164,8 @@ public class Crypt {
      */
     public final static String encryptData(String password) {
         try {
-            return byte2hex(encrypt(password.getBytes(),
-                    DATA_CRYPT_KEY.getBytes()));
+            return byte2hex(encrypt(password.getBytes(Charset.forName("UTF-8")),
+                    DATA_CRYPT_KEY.getBytes(Charset.forName("UTF-8"))));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -204,7 +206,7 @@ public class Crypt {
         }
         byte[] b2 = new byte[b.length / 2];
         for (int n = 0; n < b.length; n += 2) {
-            String item = new String(b, n, 2);
+            String item = new String(b, n, 2,StandardCharsets.UTF_8);
             b2[n / 2] = (byte) Integer.parseInt(item, 16);
         }
         return b2;
